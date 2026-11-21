@@ -1,0 +1,50 @@
+{
+  "manifest_version": 2,
+  "name": "TrimUI Gamepad Keyboard",
+  "version": "1.1",
+  "description": "On-screen keyboard and start page for gamepad-only handhelds.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "osk@trimui.local"
+    }
+  },
+  "permissions": [
+    "search",
+    "topSites",
+    "tabs"
+  ],
+  "background": {
+    "scripts": [
+      "bg.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "osk.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "chrome_url_overrides": {
+    "newtab": "start.html"
+  },
+  "commands": {
+    "osk-type": {
+      "suggested_key": {
+        "default": "Ctrl+F9"
+      },
+      "description": "Keyboard: type into the focused field"
+    },
+    "osk-go": {
+      "suggested_key": {
+        "default": "Ctrl+F8"
+      },
+      "description": "Keyboard: go to address / search"
+    }
+  }
+}
