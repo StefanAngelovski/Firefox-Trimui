@@ -1,0 +1,9 @@
+/* TrimUI Smart Pro: hide warnings that can't be fixed on this kernel, and desktop window buttons */
+notification-message[value="sandbox-content-disabled"],
+notification-message[value="sandbox-unprivileged-namespaces"] { display: none !important; }
+.titlebar-buttonbox-container, .titlebar-spacer { display: none !important; }
+
+/* Weston's kiosk shell makes every window fullscreen; Firefox sometimes collapses its toolbars
+   for that at startup. Keep them visible, except for real (DOM) fullscreen such as videos. */
+:root:not([inDOMFullscreen]) #navigator-toolbox { margin-top: 0 !important; visibility: visible !important; }
+:root:not([inDOMFullscreen]) #fullscr-toggler { display: none !important; }
