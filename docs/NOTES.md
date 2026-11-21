@@ -38,6 +38,7 @@ chroot binds, turns swap off, and MainUI comes back.
 | YouTube "can't play this video" | RDD decoder process re-enabled, AV1 off, WebM MSE off (H.264 via FFmpeg), ALSA backend |
 | Unsigned add-on rejected via policies (`ERROR_SIGNEDSTATE_REQUIRED`) | sideloaded in the app scope (`browser/extensions/`), which this build allows unsigned |
 | Add-ons can't run on `about:` pages (incl. Firefox's New Tab) | keyboard opened via add-on commands (Ctrl+F8/F9) + own start page with a fixed add-on UUID |
+| Downloads ignored `browser.download.dir` and landed in `/root/Downloads` inside the chroot | `firefox.sh` symlinks `/root/Downloads` and sets `XDG_DOWNLOAD_DIR` to `/mnt/SDCARD/Downloads` |
 | gptokeyb2's built-in `text_input` state only exists without `-c` | defined explicitly in `browser.gptk` |
 
 ## Debugging

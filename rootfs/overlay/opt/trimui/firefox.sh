@@ -8,4 +8,14 @@ export GTK_THEME=Adwaita
 P=/root/firefox-profile
 mkdir -p /tmp/shm "$P/chrome"
 cp /opt/trimui/userChrome.css "$P/chrome/userChrome.css"
+# Downloads always land on the SD card: Firefox can fall back to the XDG/home Downloads folder
+# even with browser.download.dir set, so point that at the SD card too.
+DL=/mnt/SDCARD/Downloads
+mkdir -p "$DL" /root/.config
+if [ -d /root/Downloads ] && [ ! -L /root/Downloads ]; then
+  mv /root/Downloads/* "$DL"/ 2>/dev/null
+  rmdir /root/Downloads 2>/dev/null || mv /root/Downloads /root/Downloads.old
+fi
+[ -e /root/Downloads ] || ln -s "$DL" /root/Downloads
+echo "XDG_DOWNLOAD_DIR=\"$DL\"" > /root/.config/user-dirs.dirs
 exec dbus-run-session -- firefox-esr --no-remote --profile "$P" "$@"
