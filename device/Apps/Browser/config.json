@@ -1,0 +1,6 @@
+{
+    "label":	"Firefox",
+    "icon":	"icon.png",
+    "launch":	"launch.sh",
+    "description":	"Firefox ESR web browser"
+}

@@ -1,0 +1,64 @@
+[config]
+mouse_scale = 6000
+mouse_delay = 16
+mouse_slow_scale = 35
+deadzone_mode = axial
+deadzone = 6000
+deadzone_scale = 7
+deadzone_delay = 16
+
+[controls]
+overlay = clear
+mouse_wheel_amount = 2
+left_analog = mouse_movement
+right_analog_up = mouse_wheel_up
+right_analog_down = mouse_wheel_down
+right_analog_left = left
+right_analog_right = right
+
+up = up
+down = down
+left = left
+right = right
+
+a = mouse_left
+b = left add_alt
+x = f8 add_ctrl
+y = enter
+
+l1 = pageup add_ctrl
+r1 = pagedown add_ctrl
+l2 = pageup
+r2 = pagedown
+l3 = mouse_middle
+r3 = mouse_right
+
+start = f9 add_ctrl
+guide = hold_state menu
+
+[controls:menu]
+overlay = parent
+start = push_state text_input
+a = f5
+b = mouse_forward
+x = t add_ctrl
+y = w add_ctrl
+l1 = numpad- add_ctrl
+r1 = numpad+ add_ctrl
+up = home
+down = end
+r3 = 0 add_ctrl
+
+# Character-picker text entry (Menu+Start): up/down = pick character, right/A = next character,
+# left/B = delete, Start = done, Select = cancel
+[controls:text_input]
+overlay = clear
+charset = full
+a = add_letter
+b = remove_letter
+start = finish_text
+back = cancel_text
+up = prev_letter
+down = next_letter
+left = remove_letter
+right = add_letter
